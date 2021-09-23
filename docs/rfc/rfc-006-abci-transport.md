@@ -41,3 +41,13 @@
 > There is no fixed format for this section, but ideally changes to this
 > section should be updated before merging to reflect any discussion that took
 > place on the PR that made those changes.
+
+- Cheap low-bandwidth server-to-client calls: Server maintains two new methods:
+
+  * GetTask blocks indefinitely until the server has a request for the client
+	or is about to terminate. It returns a request or an error. A request is
+	bundled with a unique identifier (taskID).
+
+  * FinishTask delivers a client response to a server task, providing the
+    original taskID and the response. This method does not block beyond
+    delivery.
