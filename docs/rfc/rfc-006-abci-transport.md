@@ -45,8 +45,12 @@
 - Cheap low-bandwidth server-to-client calls: Server maintains two new methods:
 
   * GetTask blocks indefinitely until the server has a request for the client
-	or is about to terminate. It returns a request or an error. A request is
-	bundled with a unique identifier (taskID).
+    or is about to terminate. It returns a request or an error. A request is
+    bundled with a unique identifier (taskID).
+
+    The client calls GetTask in a loop, as long as it has slots to handle more
+    work. The server keeps a queue of pending work for the client and delivers
+    the next element whenever the client calls, or blocks.
 
   * FinishTask delivers a client response to a server task, providing the
     original taskID and the response. This method does not block beyond
