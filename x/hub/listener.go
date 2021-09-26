@@ -39,8 +39,6 @@ type Listener struct {
 	wantLabel func(string) bool
 	wantData  func(interface{}) bool
 
-	evict EvictFunc
-
 	mu     *sync.Mutex // protects the fields below
 	nempty *sync.Cond  // condition: queue is not empty
 	queue  []Item      // items awaiting delivery (ring buffer)
@@ -148,40 +146,11 @@ func (lst *Listener) accept(incoming Item) {
 	defer lst.mu.Unlock()
 
 	if lst.qsize == len(lst.queue) {
-		// The queue is full and we have to evict something.
+		// The queue is full, evict the oldest undelivered item.
+		lst.qfront = (lst.qfront + 1) % len(lst.queue)
+		lst.qsize--
 		lst.lost++
 
-		// Copy out the existing items, in order, for the evictor.
-		// Since the queue is full, there are two regions: Items before
-		// lst.qfront are "newer" than the items after.
-		//
-		//    [ n n n n o o o o o o o o o o ]  lst.queue
-		//              ^-- lst.qfront
-		//
-		// So we need to swap those two regions, which are already internally
-		// ordered, to get the order we present to the evictor.
-		queued := make([]Item, len(lst.queue))
-		n := copy(queued, lst.queue[lst.qfront:])
-		copy(queued[n:], lst.queue)
-
-		pos := lst.evict(incoming, queued)
-		if pos < 0 {
-			// Drop the incoming item (nothing to do).
-			return
-		} else if pos >= len(queued) {
-			// Safety case: if pos is out of range, evict the oldest.
-			// This could arguably be a panic, but this is less annoying.
-			pos = 0
-		}
-
-		// The function has chosen an evictim.
-		// Rather than messing around with the old queue, use the fact that
-		// we just put everything in order and replace lst.queue.
-		copy(queued[pos:], queued[pos+1:]) // shift out pos
-		lst.queue = queued
-		lst.qfront = 0
-		lst.qnext = len(queued) - 1
-		lst.qsize--
 		// fall through to insert normally
 	}
 
