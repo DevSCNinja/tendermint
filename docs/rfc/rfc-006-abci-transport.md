@@ -6,17 +6,35 @@
 
 ## Abstract
 
-> A brief high-level synopsis of the topic of discussion for this RFC, ideally
-> just a few sentences.  This should help the reader quickly decide whether the
-> rest of the discussion is relevant to their interest.
+As we prepare to make the changes to Tendermint to support the newer
+[ABCI++][abci++] protocol, we should also try to resolve some of the related
+issues around how the application communicates with Tendermint.
 
 ## Background
 
-> Any context or orientation needed for a reader to understand and participate
-> in the substance of the Discussion. If necessary, this section may include
-> links to other documentation or sources rather than restating existing
-> material, but should provide enough detail that the reader can tell what they
-> need to read to be up-to-date.
+Up through Tendermint v0.35, applications communicate with the consensus node
+via the [Application BlockChain Interface (ABCI)][abci]. Starting with v0.36,
+we are migrating to an updated protocol called [ABCI++][abci++] that addresses
+several important use cases for application authors.
+
+Although ABCI++ shares a lot in common with ABCI, it also introduces new points
+of communication with the consensus node. Since we would like to simplify and
+rationalize the interprocess communication surfaces of Tendermint, this is a
+good opportunity to resolve some outstanding design issues for node/application
+communication.
+
+These issues include:
+
+- **Out-of-process transport:** Applications not written in Go communicate with
+  the consensus node either via gRPC or using a simple custom protocol that
+  exchanges protocol buffers over a Unix-domain or TCP socket.
+
+
+Issues to link:
+https://github.com/tendermint/tendermint/issues/6899
+https://github.com/tendermint/tendermint/issues/5439
+
+
 
 ## References
 
