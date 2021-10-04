@@ -31,9 +31,9 @@ These issues include:
 
 
 Issues to link:
-https://github.com/tendermint/tendermint/issues/6899
-https://github.com/tendermint/tendermint/issues/5439
-
+https://github.com/tendermint/tendermint/issues/6899 [global lock on local client]
+https://github.com/tendermint/tendermint/issues/5439 [crashes in concurrent checks]
+https://github.com/tendermint/tendermint/issues/5519 [order of execution]
 
 
 ## References
