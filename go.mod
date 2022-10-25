@@ -26,9 +26,8 @@ require (
 	github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0
 	github.com/rs/cors v1.8.0
 	github.com/rs/zerolog v1.26.0
-	github.com/sasha-s/go-deadlock v0.2.1-0.20190427202633-1595213edefa
 	github.com/snikch/goodman v0.0.0-20171125024755-10e37e294daa
-	github.com/spf13/cobra v1.2.1
+	github.com/spf13/cobra v1.6.1
 	github.com/spf13/viper v1.10.0
 	github.com/stretchr/testify v1.7.0
 	github.com/tendermint/tm-db v0.6.6
@@ -115,7 +114,7 @@ require (
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/jgautheron/goconst v1.5.1 // indirect
 	github.com/jingyugao/rowserrcheck v1.1.1 // indirect
 	github.com/jirfag/go-printf-func-name v0.0.0-20200119135958-7558a9eaa5af // indirect
@@ -150,7 +149,6 @@ require (
 	github.com/opencontainers/image-spec v1.0.2 // indirect
 	github.com/opencontainers/runc v1.0.3 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
-	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
 	github.com/phayes/checkstyle v0.0.0-20170904204023-bfd46e6a821d // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
@@ -200,7 +198,7 @@ require (
 	gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	honnef.co/go/tools v0.2.1 // indirect
 	mvdan.cc/gofumpt v0.1.1 // indirect
 	mvdan.cc/interfacer v0.0.0-20180901003855-c20040233aed // indirect
