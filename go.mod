@@ -27,21 +27,21 @@ require (
 	github.com/mroth/weightedrand v0.4.1
 	github.com/oasisprotocol/curve25519-voi v0.0.0-20210609091139-0a56a4bca00b
 	github.com/ory/dockertest v3.3.5+incompatible
-	github.com/prometheus/client_golang v1.11.0
+	github.com/prometheus/client_golang v1.11.1
 	github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0
 	github.com/rs/cors v1.8.0
-	github.com/rs/zerolog v1.26.0
+	github.com/rs/zerolog v1.29.0
 	github.com/sasha-s/go-deadlock v0.2.1-0.20190427202633-1595213edefa
 	github.com/snikch/goodman v0.0.0-20171125024755-10e37e294daa
-	github.com/spf13/cobra v1.2.1
-	github.com/spf13/viper v1.10.0
-	github.com/stretchr/testify v1.7.0
+	github.com/spf13/cobra v1.6.1
+	github.com/spf13/viper v1.15.0
+	github.com/stretchr/testify v1.8.1
 	github.com/tendermint/tm-db v0.6.6
-	github.com/vektra/mockery/v2 v2.9.4
-	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
-	golang.org/x/net v0.0.0-20211208012354-db4efeb81f4b
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
-	google.golang.org/grpc v1.42.0
+	github.com/vektra/mockery/v2 v2.21.3
+	golang.org/x/crypto v0.6.0
+	golang.org/x/net v0.6.0
+	golang.org/x/sync v0.1.0
+	google.golang.org/grpc v1.52.0
 	gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b // indirect
 	pgregory.net/rapid v0.4.7
 )
